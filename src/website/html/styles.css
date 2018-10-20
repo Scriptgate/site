@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+}
+
+.container {
+    text-align:center;
+}
+
+.container img {
+    float:center;
+	height: 70%;
+    width: 50%;    
+}
