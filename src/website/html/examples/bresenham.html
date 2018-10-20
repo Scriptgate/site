@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl">
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+
+	<title>Bresenham's Line Algorithm - Examples - ScriptGATE</title>
+
+	<script type="text/javascript" src="../../js/gate.js"></script>
+	<script type="text/javascript" src="bresenham.js"></script>
+	<script type="text/javascript" src="../../js/masonry.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery-1.9.1.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/color.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/code.css"/>
+    <link rel="stylesheet" type="text/css" href="actionscript.css"/>
+</head>
+
+<body>
+    <div id="header">
+        <a href="../"><img src="../../images/title.png" alt="ScriptGATE"/></a>
+        <a href="" class="colorpicker" id="red"></a>
+        <a href="" class="colorpicker" id="green"></a>
+        <a href="" class="colorpicker" id="blue"></a>
+        <a href="" class="colorpicker" id="yellow"></a>
+        <a href="" class="colorpicker" id="black"></a>
+    </div>
+    <hr id="headerhr"/>
+
+    <h1>Welcome to ScriptGATE</h1>
+
+    <div id="navbar">
+	<div class="panelheader">NavigationBar</div>
+	<ul>
+		<li id="games"><a href="../games/">Games</a>
+		</li><li id="applications"><a href="../applications/">Applications</a>
+		</li><li id="tutorials"><a href="../tutorials/">Tutorials</a>
+		</li><li id="examples"><a href="index.html">Examples</a></li>
+	</ul>
+</div>
+
+    <div id="container">
+	<div class="panel p2 p80">
+		<div class="panelheader">Bresenham's Line Algorithm</div>
+		<div class="innerpanel">
+
+            <h3>March 13, 2014</h3>
+			<blockquote cite="http://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm">
+				The Bresenham line algorithm is an algorithm which determines which order to form a close approximation to a straight line between two given points.
+			</blockquote>
+			This algorithm finds its use in Minecraft 2D when deciding if a block is within the view of the player.
+			Specifically, a collection of blocks intersected by the line between the player and the cursor should be checked for any block
+			that isn't transparent. This collection is generated upon the idea of the Bresenham's algorithm.
+		</div><hr class="panelbreak"/>
+		<div class="innerpanel">
+			The method to determine if a block is in sight is split up into 
+			<a href="javascript:;" class="mouseclick bla_2">two</a> functions. The 
+			<a href="javascript:;" class="mouseclick bla_1st">first</a> collects all the blocks intersected by the line between player and cursor, the 
+			<a href="javascript:;" class="mouseclick bla_2nd">second</a> function checks wether or not all the blocks in a given collection are transparent. The 
+			<a href="javascript:;" class="mouseclick bla_3rd">third</a> function is used to find the next divisible number by 16 lower than the given number.
+		</div><hr class="panelbreak"/>
+		<div class="innerpanel">
+			The 
+			<a href="javascript:;" class="mouseclick bla_1st">first</a> algorithm is divided into 
+			<a href="javascript:;" class="mouseclick bla_1_3">three</a> parts. 
+			<a href="javascript:;" class="mouseclick bla_1_1st">Declaration of variables</a>, 
+			<a href="javascript:;" class="mouseclick bla_1_2nd">iteration over x values</a> and 
+			<a href="javascript:;" class="mouseclick bla_1_3rd">iteration over y values</a> respectively.
+		</div><hr class="panelbreak"/>
+		<div class="innerpanel">
+			<h3>Declaration of variables</h3>
+			<ul>
+				<li>
+					Point p<sub>1</sub> is the vector starting from the cursor to the eyes of the player, and is calculated by substracting
+					the base 16 of the coordinates of the cursor from the coordinates of the eyes.
+				</li>
+				<li>
+					Point p<sub>2</sub> is the the difference between the base 16 of the coordinates of the cursor and the actual coordinates.
+				</li>
+				<li>
+					The variables x<sub>0</sub> and y<sub>0</sub> will be used to iterate over the line between eyes and cursor.
+				</li>
+				<li>
+					The variables x<sub>16</sub> and y<sub>16</sub> are used to save the previous base 16 of x<sub>0</sub> and y<sub>0</sub> values to ensure no doubles occur after rounding x<sub>0</sub> to a base 16.
+				</li>
+			</ul>
+		</div><hr class="panelbreak"/>
+		<div class="innerpanel">
+			<h3>Iteration over x values</h3>
+			<ul>
+				<li>
+					We continue the algorithm untill the base 16 of x<sub>0</sub> is equal to the base 16 of the x value of p<sub>2</sub>, in other words, we
+					continue until we have iterated over each value on the x-axis between the cursor and the eyes of the player.
+				</li>
+				<li>
+					First, the x<sub>0</sub> value is incremented or decremented according to its position to the x-coordinate of the eyes.
+				</li>
+				<li>
+					Secondly, the y<sub>0</sub> value is calculated. Using the function of a line between two points, the y<sub>0</sub> value is given by y = m*(x-q) or
+					y = (y<sub>2</sub>-y<sub>1</sub>)/(x<sub>2</sub>-x<sub>1</sub>)*(x-x<sub>1</sub>)+y<sub>1</sub>.
+				</li>
+				<li>
+					If the base 16 of x<sub>0</sub> isn't equal to the previous calculated value, the previous values of x<sub>0</sub> and y<sub>0</sub> is saved in x<sub>16</sub> and y<sub>16</sub> and added to the result.
+				</li>
+			</ul>
+		</div><hr class="panelbreak"/>
+		<div class="innerpanel">
+			<h3>Iteration over y values</h3>
+			<ul>
+				<li>
+					The iteration over y values is the same as the x values with one exception. Before adding the values to the result, a check is performed whether or not the value is already added to the result.
+				</li>
+				<li>
+					x<sub>0</sub> is calculated by the inversed function x = (x<sub>2</sub>-x<sub>1</sub>)/(y<sub>2</sub>-y<sub>1</sub>)*(y-y<sub>1</sub>)+x<sub>1</sub>.
+				</li>
+			</ul>
+		</div><hr class="panelbreak"/>
+		<div class="innerpanel">
+			The 
+			<a href="javascript:;" class="mouseclick bla_2nd">second</a> algorithm is divided into 
+			<a href="javascript:;" class="mouseclick bla_2_2">two</a> parts. 
+			<a href="javascript:;" class="mouseclick bla_2_1st">Declaration of variables</a> and
+			<a href="javascript:;" class="mouseclick bla_2_2nd">iteration</a> of the results of the first algorithm.
+		</div><hr class="panelbreak"/>
+		<div class="innerpanel">
+			<h3>Declaration of variables</h3>
+			<ul>
+				<li>
+					MousePoint is the point containing the coordinates of the cursor.
+				</li>
+				<li>
+					EyePoint is the point containing the coordinates of the eyes of the player.
+				</li>
+				<li>
+					sight is a collection containing the results of the first algorithm with MousePoint and
+					EyePoint as arguments.
+				</li>
+				<li>
+					insight is a boolean and the result of this function.
+				</li>
+			</ul>
+		</div><hr class="panelbreak"/>
+		<div class="innerpanel">
+			<h3>Iteration</h3>
+			<ul>
+				<li>
+					We iterate over the collection of blocks as a result of the first algorithm.
+					pStr will contain a concatenation of the x and y position of a block.
+				</li>
+				<li>
+					First we declare point p by splitting up pStr into x and y coordinates.
+				</li>
+				<li>
+					Secondly, since the first algorithm returns all the coordinates relative to the coordinates of the cursor, we add the base 16 of both coordinates of the cursor to the coordinates of the block.
+				</li>
+				<li>
+					Lastly we check whether the block exists, before checking it's transparency (this might be the case if a coordinate should fall outside our world).
+				</li>
+				<li>
+					If the block is not transparent, and not the block selected by the cursor, the selected block is not in sight.
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="panel p2 p60">
+		<div class="panelheader">Bresenham's Line Algorithm - Code</div>
+		<div class="innerpanel">
+			<code id="bla_1st">
+				<span class="keywords">public function</span> inSight(<br class="lnbr"/><span class="lnbr indent1">&nbsp;</span>MousePoint:<span class="identifiers">Point</span>, <br class="lnbr"/><span class="lnbr indent1">&nbsp;</span>EyePoint:<span class="identifiers">Point</span>, <br class="lnbr"/><span class="lnbr indent1">&nbsp;</span><span class="identifiers">stage</span>:<span class="identifiers">Stage</span>):<span class="identifiers">Array</span><br/>
+				{<br/>
+			</code>
+			<code id="bla_1_1st">
+				<span class="keywords indent1">var</span> p1:<span class="identifiers">Point</span> = <span class="keywords">new</span> <span class="identifiers">Point</span>(<br/>
+				<span class="indent1">EyePoint</span><span class="identifiers">.x</span> - <br class="lnbr"/><span class="lnbr indent1">&nbsp;</span>floor16(MousePoint<span class="identifiers">.x</span>),<br/>
+				<span class="indent1">EyePoint</span><span class="identifiers">.y</span> - <br class="lnbr"/><span class="lnbr indent1">&nbsp;</span>floor16(MousePoint<span class="identifiers">.y</span>));<br/>
+				<br/>
+				<span class="keywords indent1">var</span> p2:<span class="identifiers">Point</span> = <span class="keywords">new</span> <span class="identifiers">Point</span>(<br/>
+				<span class="indent1">MousePoint</span><span class="identifiers">.x</span> - <br class="lnbr"/><span class="lnbr indent1">&nbsp;</span>floor16(MousePoint<span class="identifiers">.x</span>),<br/>
+				<span class="indent1">MousePoint</span><span class="identifiers">.y</span> - <br class="lnbr"/><span class="lnbr indent1">&nbsp;</span>floor16(MousePoint<span class="identifiers">.y</span>));<br/>
+				<br/>
+				<span class="keywords indent1">var</span> x0:<span class="identifiers">Number</span> = p1<span class="identifiers">.x</span>;<br/>
+				<span class="keywords indent1">var</span> y0:<span class="identifiers">Number</span> = p1<span class="identifiers">.y</span>;<br/>
+				<br/>
+				<span class="keywords indent1">var</span> x16:<span class="identifiers">Number</span> = floor16(x0);<br/>
+				<span class="keywords indent1">var</span> y16:<span class="identifiers">Number</span> = floor16(y0);<br/>
+				<br/>
+				<span class="keywords indent1">var</span> intersection:<span class="identifiers">Array</span> = <br class="lnbr"/><span class="lnbr indent1">&nbsp;</span><span class="keywords">new</span> <span class="identifiers">Array</span>(x16+<span class="strings">","</span>+y16);<br/>
+				<span class="indent1">x0 = floor16(x0);</span><br/>
+			</code>
+			<code id="bla_1_2nd">
+				<br/>
+				<span class="keywords indent1">while</span> (floor16(x0) != <br class="lnbr"/><span class="lnbr indent1">&nbsp;</span>floor16(p2<span class="identifiers">.x</span>))<br/>
+				<span class="indent1">{</span><br/>
+				<span class="indent2">x0 +=  (x0 </span>< p2<span class="identifiers">.x</span>) ? 1:-1;<br/>
+				<span class="indent2">y0 = ((p2</span><span class="identifiers">.y</span>-p1<span class="identifiers">.y</span>)/(p2<span class="identifiers">.x</span>-p1<span class="identifiers">.x</span>))*(x0-p1<span class="identifiers">.x</span>)+p1<span class="identifiers">.y</span>;<br/>
+				<span class="keywords indent2">if</span> (floor16(x0) != x16)<br/>
+				<span class="indent2">{</span><br/>
+				<span class="indent3">x16 = floor16(x0);</span><br/>
+				<span class="indent3">y16 = floor16(y0);</span><br/>
+				<span class="indent3">intersection</span><span class="identifiers">.push</span>(x16+<span class="strings">","</span>+y16);<br/>
+				<span class="indent2">}</span><br/>
+				<span class="indent1">}</span><br/>
+			</code>
+			<code id="bla_1_3rd">
+				<span class="indent1">y0 = p1</span><span class="identifiers">.y</span>;<br/>
+				<br/>
+				<span class="keywords indent1">while</span> (floor16(y0) != <br class="lnbr"/><span class="lnbr indent1">&nbsp;</span>floor16(p2<span class="identifiers">.y</span>))<br/>
+				<span class="indent1">{</span><br/>
+				<span class="indent2">y0 +=  (y0 < p2</span><span class="identifiers">.y</span>) ? 1:-1;<br/>
+				<span class="indent2">x0 = ((p2</span><span class="identifiers">.x</span>-p1<span class="identifiers">.x</span>)/(p2<span class="identifiers">.y</span>-p1<span class="identifiers">.y</span>))*(y0-p1<span class="identifiers">.y</span>)+p1<span class="identifiers">.x</span>;<br/>
+				<span class="keywords indent2">if</span> (floor16(y0) != y16 && <br/>
+				<span class="indent2">intersection</span><span class="identifiers">.indexOf</span>(<br class="lnbr"/><span class="lnbr indent2">&nbsp;</span>floor16(x0)+<span class="strings">","</span>+<br class="lnbr"/><span class="lnbr indent2">&nbsp;</span>floor16(y0)) == -1)<br/>
+				<span class="indent2">{</span><br/>
+				<span class="indent3">x16 = floor16(x0);</span><br/>
+				<span class="indent3">y16 = floor16(y0);</span><br/>
+				<span class="indent3">intersection</span><span class="identifiers">.push</span>(x16+<span class="strings">","</span>+y16);<br/>
+				<span class="indent2">}</span><br/>
+				<span class="indent1">}</span><br/>
+				<span class="indent1">return intersection;</span><br/>
+				}
+			</code>
+		</div><hr class="panelbreak"/>
+		<div class="innerpanel">
+			<code id="bla_3rd">
+				<span class="keywords">private function</span> floor16(<br class="lnbr"/><span class="lnbr indent1">&nbsp;</span>floor:<span class="identifiers">Number</span>):<span class="identifiers">Number</span><br/>
+				{<br/>
+				<span class="keywords indent1">return</span> <span class="identifiers">Math.floor</span>(<br class="lnbr"/><span class="lnbr indent1">&nbsp;</span>floor / 16.0) * 16;<br/>
+				}
+			</code>
+		</div><hr class="panelbreak"/>
+		<div class="innerpanel">
+			<code id="bla_2nd">
+				<span class="keywords">public function</span> isBlockInSight():<span class="identifiers"><br class="lnbr"/><span class="lnbr indent1">&nbsp;</span>Boolean</span><br/>
+				{<br/>
+			</code>
+			<code id="bla_2_1st">
+				<span class="keywords indent1">var</span> MousePoint:<span class="identifiers">Point</span> = <span class="keywords">new</span> <span class="identifiers">Point</span>(<br class="lnbr"/><span class="lnbr indent1">&nbsp;</span><span class="identifiers">this.stage.mouseX</span>,<br class="lnbr"/><span class="lnbr indent1">&nbsp;</span><span class="identifiers">this.stage.mouseY</span>);<br/>
+				<span class="keywords indent1">var</span> EyePoint:<span class="identifiers">Point</span> = <span class="identifiers">this</span>.player.getEyePosition();<br/>
+				<span class="keywords indent1">var</span> sight:<span class="identifiers">Array</span> = <span class="identifiers"><br class="lnbr"/><span class="lnbr indent1">&nbsp;</span>this</span>.gui.inSight(<br class="lnbr"/><span class="lnbr indent1">&nbsp;</span>MousePoint,EyePoint,<span class="identifiers">this.stage</span>);<br/>
+				<span class="keywords indent1">var</span> insight:<span class="identifiers">Boolean</span> = <span class="identifiers">true</span>;<br/>
+			</code>
+			<code id="bla_2_2nd">
+				<br/>
+				<span class="identifiers indent1">for</span> each (<span class="keywords">var</span> pStr:<span class="identifiers">String</span> <span class="keywords">in</span> sight)<br/>
+				<span class="indent1">{</span><br/>
+				<span class="keywords indent2">var</span> p = <span class="keywords">new</span> <span class="identifiers">Point</span>(<br class="lnbr"/><span class="lnbr indent2">&nbsp;</span>sight[sight<span class="identifiers">.indexOf</span>(pStr)]<span class="identifiers"><br class="lnbr"/><span class="lnbr indent2">&nbsp;</span>.split(</span><span class="strings">","</span>)[0],<br/>
+				<span class="indent2">&nbsp;sight[sight</span><span class="identifiers">.indexOf</span>(pStr)]<span class="identifiers"><br class="lnbr"/><span class="lnbr indent2">&nbsp;</span>.split</span>(<span class="strings">","</span>)[1]);<br/>
+				<span class="indent2">p</span><span class="identifiers">.x</span> += <br class="lnbr"/><span class="lnbr indent3">&nbsp;</span>floor16(<span class="identifiers">this.stage</span>.<span class="identifiers">mouseX</span>);<br/>
+				<span class="indent2">p</span><span class="identifiers">.y</span> += <br class="lnbr"/><span class="lnbr indent3">&nbsp;</span>floor16(<span class="identifiers">this.stage</span>.<span class="identifiers">mouseY</span>);<br/>
+				<span class="keywords indent2">if</span> (<br class="lnbr"/><span class="lnbr indent2">&nbsp;</span><span class="identifiers">this</span>.world<br class="lnbr"/><span class="lnbr indent2">&nbsp;</span>.getBlockAt(p<span class="identifiers">.x</span>,p<span class="identifiers">.y</span>) <br class="lnbr"/><span class="lnbr indent2">&nbsp;</span>!= <span class="identifiers">null</span>)<br/>
+				<span class="indent2">{</span><br/>
+				<span class="keywords indent3">if</span> (<br class="lnbr"/><span class="lnbr indent3">&nbsp;</span>!<span class="identifiers">this</span>.world<br class="lnbr"/><span class="lnbr indent3">&nbsp;</span>.getBlockAt(p<span class="identifiers">.x</span>,p<span class="identifiers">.y</span>)<br class="lnbr"/><span class="lnbr indent3">&nbsp;</span>.isTransparent() &&<br/>
+				<span class="indent4">pStr != </span><span class="strings">"0,0"</span>)<br/>
+				<span class="indent3">{</span><br/>
+				<span class="indent4">insight =</span><span class="identifiers"> false</span>;<br/>
+				<span class="indent3">}</span><br/>
+				<span class="indent2">}</span><br/>
+				<span class="indent1">}</span><br/>
+				<span class="keywords indent1">return</span> insight;<br/>
+				}<br/>
+			</code>
+		</div>
+	</div>
+	<div class="panel p2">
+		<div class="panelheader">Bresenham's Line Algorithm In Action</div>
+		<div class="innerpanel">
+			<a href="bresenham_minecraft.png"><img src="bresenham_minecraft.png" alt="Bresenham's Line Algorithm In Minecraft"/></a>
+		</div>
+	</div>
+</div>
+
+    <div id="footer"></div>
+
+</body>
+
+</html>

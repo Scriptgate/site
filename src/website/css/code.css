@@ -1,0 +1,23 @@
+.indent1 { display:inline-block; text-indent:1em; }
+.indent2 { display:inline-block; text-indent:2em; }
+.indent3 { display:inline-block; text-indent:3em; }
+.indent4 { display:inline-block; text-indent:4em; }
+
+.lnbr { display:none; }
+
+.innerpanel > code {
+	border-left:0.625em solid transparent;
+	display:block;
+	position:relative;
+	padding-left:0.625em;
+}
+
+.mouseclick {
+	color:#303030;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+.mouseclick:hover {
+	text-decoration:underline;
+}

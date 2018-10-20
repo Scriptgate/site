@@ -1,0 +1,219 @@
+
+/*---BODY---*/
+
+body {
+	margin:0px;
+	padding:0px;
+	font-size:100%;
+	font-family:arial;
+}
+
+h1 {
+	padding-left:0.625em;
+	font-size:1.5em;
+	font-weight:normal;
+}
+
+h2 {
+	margin: 0px;
+	font-size:1.25em;
+}
+
+h3 {
+	text-indent:0.625em;
+	margin: 0px;
+	font-size:0.9em;
+	font-weight:normal;
+	text-transform:uppercase;
+}
+
+#header, .panel, #navbar ul li {
+	background-image:url("../../resources/images/transbg.png");
+}
+
+.panelbreak {
+	box-shadow:0em 0.5em 0.5em -0.25em #000000 inset;
+}
+
+#header, .panel, #navbar {
+	box-shadow: 0.25em 0.25em 0.75em #000000;
+}
+
+/*---HEADER---*/
+
+#headerhr {
+	min-width:20.375em;
+	height:0.25em;
+	background-color:black;
+	margin-left:0.625em;
+	margin-right:0.625em;
+	margin-top:0px;
+	border:0px;
+}
+
+#header {
+	min-width:19.125em;
+	margin:0.625em 0.625em 0px 0.625em;
+	padding:0.625em;
+}
+
+#header img {
+	height:6.5em;
+}
+
+/*---COLOR PICKER---*/
+
+.colorpicker {
+	float:right;
+	display:inline-block;
+	height:1em;
+	width:1em;
+	margin-left:0.25em;
+}
+
+/*---NAVIGATION BAR---*/
+
+#navbar {
+	margin:0.625em;
+}
+
+#navbar ul {
+	list-style-type:none;
+	margin:0px;
+	padding:0px;
+}
+
+#navbar a {
+	text-indent:0.625em;
+	padding-top:0.625em;
+	padding-bottom:0.625em;
+	text-decoration:none;
+	display:block;
+	width:100%;
+	font-weight:bold;
+}
+
+#games, #applications, #tutorials, #examples {
+	display:inline-block;
+	width:100%;
+}
+
+/*---PANELS---*/
+
+.panelheader {
+	height:1.875em;
+	line-height:1.875em;
+	padding-left:0.625em;
+	padding-right:0.625em;
+}
+
+.panel {
+	display:inline-block;
+	margin:0.625em;
+	vertical-align:text-top;
+}
+
+.panelbreak {
+	width:100%;
+	height:0.25em;
+	border:0px;
+}
+
+
+.p1 {
+	width:18.75em;
+}
+
+.p2 {
+	width:38.75em;
+}
+
+.max {
+	display:block;
+}
+
+.innerpanel {
+	padding:0.625em;
+	display:inline-block;
+}
+
+.innerpanel > ul {
+	margin:0px;
+	font-size:0.8em;
+	line-height:1.5em;
+}
+
+.innerpanel ul {
+    list-style-type:square;
+}
+
+.innerpanel ul code {
+	font-size:1.25em;
+}
+
+.innerpanel img {
+	width:100%;
+}
+
+p {
+	margin:0px;
+}
+
+a.image img {
+	width:4em;
+	height:4em;
+}
+
+a.image {
+	padding:0.3em;
+	display:block;
+	float:left;
+	margin-right:0.625em;
+	margin-bottom:0.625em;
+}
+
+blockquote {
+	font-style:italic;
+	padding-left:0.625em;
+	margin:0.625em;
+}
+
+/*---MEDIA QUERIES---*/
+
+@media (min-width:32em){
+	#navbar a { height:6.8em; }
+
+	#games, #applications, #tutorials{
+		width:8em;
+		float:left;
+    }
+
+	#examples { display:block; }
+}
+
+@media (max-width:32em) {
+	#navbar { width:18.75em; }
+}
+
+@media (max-width:40em) {
+	.colorpicker { float:none; }
+	#header img {
+		margin-left:auto;
+		margin-right:auto;
+		display:block;
+		margin-bottom:0.625em;
+	}	
+	#header { text-align:center; }
+	.p2 { width:18.75em; }
+}
+
+@media (max-width:80em) {
+	.p80 { width:18.75em; }
+}
+
+@media (max-width:60em) {
+	.p60 { width:18.75em; }
+	span.lnbr { display:inline-block; }
+	br.lnbr   { display:inline-block;}
+}
+

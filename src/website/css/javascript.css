@@ -1,0 +1,6 @@
+.number  { color:#ff0000; }
+.string  { color:#808080; }
+.keyword { color:#000080;
+	font-style:italic;
+	font-weight:bold;
+}

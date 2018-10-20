@@ -1,0 +1,42 @@
+
+#red    { background-color: #ff0000; }
+#green  { background-color: #00ff00; }
+#blue   { background-color: #0000ff; }
+#yellow { background-color: #ffff00; }
+#black  { background-color: #000000; }
+
+div.panelheader {
+	background-color: #2a2a2a;
+	color:#ffffff;
+}
+
+.panel  { background-color: #c3c3c3; }
+#header { background-color: #c3c3c3; }
+body    { background-color: #f0f0f0; }
+#navbar { background-color: #c3c3c3; }
+
+#navbar a { color:#f0f0f0; }
+
+#games        { background-color: #646464; }
+#applications { background-color: #7d7d7d; }
+#tutorials    { background-color: #969696; }
+#examples     { background-color: #afafaf; }
+
+blockquote {
+	border-left:0.3em solid #7d7d7d;
+}
+
+hr {
+	border:1px solid #000000;
+	background-color:#000000;
+}
+
+.panelbreak { background-color:#f0f0f0; }
+
+a.image {
+	background-color:#f0f0f0;
+	border:1px solid #bbbbbb;
+}
+
+a.image img  { border:1px solid #bbbbbb; }
+.colorpicker { border:1px solid #f0f0f0; }
