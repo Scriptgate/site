@@ -1,0 +1,134 @@
+<html>
+
+<head>
+
+<style type="text/css">
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+
+body {
+		height: 100%;
+		background-image: url('logo_background.svg');
+		background-color: #272727;
+		background-repeat: repeat-y;
+		background-size: 50% auto;
+		overflow-y: scroll;
+}
+
+#logo_left {
+	background-color: #A20000;
+	
+	float:left;
+	margin-top: 0px;
+	margin-bottom: auto;
+	
+	width:223px;
+	height:775px;
+}
+
+#logo_right {
+	background-color: #272727;
+
+	float:right;
+	padding-top: 225px;
+	
+	width:223px;
+	height:550px;
+}
+
+#logo_container {
+	background-image: url('hex_color.svg');
+	background-repeat: no-repeat;
+	
+	background-position: center;
+	width: 446px;
+	margin: auto;
+	display: inline-block;
+	margin-top:100px;
+}
+
+#container {
+	text-align: center;
+	overflow-x:hidden;
+}
+
+#placeholder {
+	height: 2000px;
+	width:110%;
+	
+}
+
+
+
+</style>
+
+<script type="text/javascript">
+
+window.addEventListener('load', onLoad)
+window.addEventListener('scroll', onScroll);
+
+
+function onLoad() {
+	window.scrollTo(0,0);
+}
+
+function onScroll() {
+	//document.getElementById('left').style.marginLeft = '-'+pageYOffset+'px';
+	//document.getElementById('right').style.marginLeft = pageYOffset+'px';
+	var logo = document.getElementById('logo_container');
+	var container = document.getElementById('container');
+	var scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
+	var newWidth = 346 + pageYOffset;
+	var marginLeft= (newWidth - container.clientWidth - scrollbarWidth)/2;
+	
+	if(newWidth < 446)  {
+		newWidth = 446
+		marginLeft =0;
+	}
+	
+	
+	
+	
+	
+	if(newWidth < container.clientWidth) {
+		logo.style.width = newWidth+'px';
+		logo.style.marginTop = (100+pageYOffset)+'px';
+	} else {
+		if(newWidth < (container.clientWidth+500)) {
+			logo.style.marginLeft = '-'+marginLeft+'px';
+			logo.style.width = newWidth+'px';
+			logo.style.marginTop = (100+pageYOffset)+'px';
+		}
+	}
+	
+	
+
+	
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div id="container">
+	
+	
+	<div id="logo_container">
+		<div id="logo_left"><img src="logo_left.svg"/></div>
+		<div id="logo_right"><img src="logo_right.svg"/></div>
+	</div>
+	<div id="placeholder">Placeholder</div>
+</div>
+
+
+
+
+</body>
+
+</html>
