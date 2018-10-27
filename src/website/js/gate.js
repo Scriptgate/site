@@ -67,7 +67,7 @@ function setCookie(c_name,value,exdays)
 {
 	var exdate=new Date();
 	exdate.setDate(exdate.getDate() + exdays);
-	var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString() + ";domain=.webontwerp.khleuven.be;path=/");
+	var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString() + ";domain=.scriptgate.net;path=/");
 	document.cookie=c_name + "=" + c_value;
 }
 
