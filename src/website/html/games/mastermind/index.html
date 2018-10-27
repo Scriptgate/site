@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl">
+
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+
+    <title>Mastermind - Games - ScriptGATE</title>
+
+    <script type="text/javascript" src="../../../js/gate.js"></script>
+    <script type="text/javascript" src="../../../js/masonry.min.js"></script>
+    <script type="text/javascript" src="../../../js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../../../js/mastermind.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../../../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/color.css"/>
+    <style type="text/css">
+        .max               { text-align: center; }
+        .max .panelheader  { text-align: left; }
+        .panel .innerpanel { text-align: center; }
+
+
+    </style>
+    <style type="text/css">
+    #title {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow:none;
+    }
+
+    .container {
+        margin-top: 20px;
+    }
+
+    #container-history {
+        color: white;
+        width: 50%;
+        float: left;
+        text-align: right;
+        font-size: 16px;
+    }
+
+    #container-history-color {
+        width: 50%;
+        float: right;
+        text-align: left;
+    }
+
+    #history, #history-color {
+        list-style-type:none;
+    }
+
+    #history span {
+        display:block;
+    }
+
+    ul {
+        padding: 0;
+    }
+
+    ul li {
+        padding:0px 15px;
+        margin-bottom:5px;
+    }
+
+    #history li {
+        height:40px;
+    }
+
+    #history-color li {
+        padding-top:4px;
+        height:36px;
+    }
+
+    .ball.guess {
+        border: 1px solid white;
+    }
+
+    .ctrl-btn {
+        font-weight: bold;
+        font-size: 16px;
+        color: white;
+        border: 1px solid white;
+        background-color: grey;
+        margin: 0px 5px;
+        padding:3px;
+    }
+
+    .ball {
+        display: inline-block;
+        border: 0px;
+        width: 32px;
+        height: 32px;
+        background-color:transparent;
+    }
+
+    .victory      { background-image: url("../../../resources/images/mastermind/fireworks.gif"); }
+    .guess.active { background-image: url("../../../resources/images/mastermind/glowgif.gif"); }
+    .ball.blue    { background-image: url("../../../resources/images/mastermind/blueball.png"); }
+    .ball.yellow  { background-image: url("../../../resources/images/mastermind/yellowball.png"); }
+    .ball.pink    { background-image: url("../../../resources/images/mastermind/pinkball.png"); }
+    .ball.green   { background-image: url("../../../resources/images/mastermind/greenball.png"); }
+    .ball.red     { background-image: url("../../../resources/images/mastermind/redball.png"); }
+    .ball.white   { background-image: url("../../../resources/images/mastermind/whiteball.png"); }
+
+
+
+
+    </style>
+
+</head>
+
+<body>
+<div id="header">
+    <a href="../../site.html"><img src="../../../resources/images/title.png" alt="ScriptGATE"/></a>
+    <a href="" class="colorpicker" id="red"></a>
+    <a href="" class="colorpicker" id="green"></a>
+    <a href="" class="colorpicker" id="blue"></a>
+    <a href="" class="colorpicker" id="yellow"></a>
+    <a href="" class="colorpicker" id="black"></a>
+</div>
+<hr id="headerhr"/>
+
+<h1>Welcome to ScriptGATE</h1>
+
+<div id="navbar">
+    <div class="panelheader">NavigationBar</div>
+    <ul>
+        <li id="games"><a href="../">Games</a></li>
+        <li id="applications"><a href="../../applications/">Applications</a></li>
+        <li id="tutorials"><a href="../../tutorials/">Tutorials</a></li>
+        <li id="examples"><a href="../../examples/">Examples</a></li>
+    </ul>
+</div>
+
+<div id="container">
+    <div class="panel p2">
+        <div class="panelheader">Mastermind</div>
+        <div class="innerpanel">
+            <img id="title" src="../../../resources/images/mastermind/mastermind.png">
+
+            <div class="container">
+                <input type="button" onclick="enterGuess()" value="GUESS" class="ctrl-btn"><!--
+ --><input type="button" onclick="reset()" value="COLOR RESET" class="ctrl-btn"><!--
+ --><input type="button" onclick="fullReset()" value="RESET" class="ctrl-btn">
+            </div>
+
+            <div class="container">
+                <input type="button" class="ball blue" value="" onclick="choose('blue')"><!--
+ --><input type="button" class="ball yellow" value="" onclick="choose('yellow')"><!--
+ --><input type="button" class="ball pink" value="" onclick="choose('pink')"><!--
+ --><input type="button" class="ball green" value="" onclick="choose('green')"><!--
+ --><input type="button" class="ball red" value="" onclick="choose('red')"><!--
+ --><input type="button" class="ball white" onclick="choose('white')">
+            </div>
+
+            <div class="container">
+                <input type="button" id="first" value="" onclick="removeGuess('first')" class="ball guess active"><!--
+ --><input type="button" id="second" value="" onclick="removeGuess('second')" class="ball guess"><!--
+ --><input type="button" id="third" value="" onclick="removeGuess('third')" class="ball guess"><!--
+ --><input type="button" id="fourth" value="" onclick="removeGuess('fourth')" class="ball guess">
+            </div>
+
+            <div id="container-history" class="container">
+                <img src="../../../resources/images/mastermind/history.png">
+
+                <ul id="history"></ul>
+            </div>
+            <div id="container-history-color" class="container">
+                <img src="../../../resources/images/mastermind/colorhistory.png">
+
+                <ul id="history-color"></ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="footer"></div>
+
+</body>
+
+
+</html>
+
+
+
+
+
+
+
+
