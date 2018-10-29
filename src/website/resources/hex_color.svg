@@ -2,9 +2,9 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="480px" height="560px" viewBox="0 0 480 560" enable-background="new 0 0 480 560" xml:space="preserve">
-<polygon id="hex" fill="#CCCCCC" stroke="#1A1A1A" stroke-width="3" stroke-miterlimit="10" points="242.5,441.673 100.5,359.521
+<polygon id="hex" fill="#CCCCCC" stroke="#1A1A1A" stroke-width="3" stroke-miterlimit="10" points="242.5,441.673 100.5,359.521 
 	100.5,195.216 242.5,113.064 384.5,195.216 384.5,359.521 "/>
-<polygon id="hex_1_" display="none" fill="none" stroke="#000000" stroke-miterlimit="10" points="293,168.987 228.5,131.646
+<polygon id="hex_1_" display="none" fill="none" stroke="#000000" stroke-miterlimit="10" points="293,168.987 228.5,131.646 
 	228.5,56.962 293,19.62 357.5,56.962 357.5,131.646 "/>
 <g id="center">
 	<path id="bottom" fill="#1A1A1A" stroke="#272727" stroke-miterlimit="10" d="M241.35,275.515l-20.367-11.405
@@ -20,16 +20,16 @@
 <circle fill="#B3B3B3" stroke="#1A1A1A" stroke-width="3" stroke-miterlimit="10" cx="413.101" cy="378.45" r="33"/>
 <circle fill="#B3B3B3" stroke="#1A1A1A" stroke-width="3" stroke-miterlimit="10" cx="242.6" cy="475.25" r="33"/>
 <circle fill="#B3B3B3" stroke="#1A1A1A" stroke-width="3" stroke-miterlimit="10" cx="71" cy="376.25" r="33"/>
-<polygon fill="#FCEE21" stroke="#1A1A1A" stroke-width="3" stroke-miterlimit="10" points="44.6,194.5 72.412,146.329
+<polygon fill="#FCEE21" stroke="#1A1A1A" stroke-width="3" stroke-miterlimit="10" points="44.6,194.5 72.412,146.329 
 	100.223,194.5 "/>
-<polygon fill="#1A1A1A" stroke="#1A1A1A" stroke-width="3" stroke-miterlimit="10" points="214,63.822 269.621,63.262
+<polygon fill="#1A1A1A" stroke="#1A1A1A" stroke-width="3" stroke-miterlimit="10" points="214,63.822 269.621,63.262 
 	242.295,111.711 "/>
-<polygon fill="#ED1C24" stroke="#1A1A1A" stroke-width="3" stroke-miterlimit="10" points="387.801,194.5 415.612,146.329
+<polygon fill="#ED1C24" stroke="#1A1A1A" stroke-width="3" stroke-miterlimit="10" points="387.801,194.5 415.612,146.329 
 	443.424,194.5 "/>
-<polygon fill="#F2F2F2" stroke="#1A1A1A" stroke-width="3" stroke-miterlimit="10" points="215.1,491.5 242.912,443.329
+<polygon fill="#F2F2F2" stroke="#1A1A1A" stroke-width="3" stroke-miterlimit="10" points="215.1,491.5 242.912,443.329 
 	270.723,491.5 "/>
-<polygon fill="#0071BC" stroke="#1A1A1A" stroke-width="3" stroke-miterlimit="10" points="44.127,360.822 99.749,360.263
+<polygon fill="#0071BC" stroke="#1A1A1A" stroke-width="3" stroke-miterlimit="10" points="44.127,360.822 99.749,360.263 
 	72.422,408.711 "/>
-<polygon fill="#39B54A" stroke="#1A1A1A" stroke-width="3" stroke-miterlimit="10" points="385.128,360.822 440.749,360.263
+<polygon fill="#39B54A" stroke="#1A1A1A" stroke-width="3" stroke-miterlimit="10" points="385.128,360.822 440.749,360.263 
 	413.423,408.711 "/>
 </svg>
