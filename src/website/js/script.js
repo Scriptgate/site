@@ -1,16 +1,19 @@
 window.addEventListener('load', onLoad)
-window.addEventListener('scroll', onScroll);
 
 
 function onLoad() {
-	window.scrollTo(0,0);
 }
 
-function onScroll() {
+var opening = 0;
 
+function openTheGates() {
+
+
+
+    opening+=5;
 
 	var scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
-	var newWidth = 346 + pageYOffset;//446 - 100
+	var newWidth = 446 + opening;
 	var marginLeft = Math.floor((newWidth - gid('container').clientWidth - scrollbarWidth)/2.0);
 
 	if(newWidth < 446)  {
@@ -19,22 +22,18 @@ function onScroll() {
 	}
 
 	var logo = gid('logo_container');
-	var content = gid("content")
 
-	if(newWidth < 926) {//480 + 446
-		logo.style.marginLeft = '-'+marginLeft+'px';
-		logo.style.width = newWidth+'px';
-		logo.style.marginTop = pageYOffset+'px';
-        content.style.opacity = 0;
-		logo.style.backgroundImage = "url('resources/hex_color_50_opacity.svg')";
-	} else {
-		if(pageYOffset < 1750) {
-			logo.style.backgroundImage = 'none';
-			content.style.opacity = pageYOffset/1750;
-			content.style.marginTop= (pageYOffset - 1585)+'px';//875 + 560 + 150
-		}
+    logo.style.marginLeft = '-'+marginLeft+'px';
+    logo.style.width = newWidth+'px';
 
-	}
+    console.log("window:"+window.innerWidth);
+    console.log("container:"+logo.clientWidth);
+    if(logo.clientWidth < window.innerWidth ) {
+        setTimeout(function(){ openTheGates(); }, 10);
+    } else {
+        window.location.href = "http://scriptgate.net/html/site.html";
+    }
+
 }
 
 function gid(id) {

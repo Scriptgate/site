@@ -23,12 +23,11 @@ function resizePage() {
 }
 
 var palette = {
-	//125, 125, 150, 175, 200, 225
-	"red":new Array("#c30000", "#7d0000", "#960000", "#af0000", "#c80000", "#e10000"),
-	"blue":new Array("#0000c3", "#00007d", "#000096", "#0000af", "#0000c8", "#0000e1"),
-	"green":new Array("#00c300", "#007d00", "#009600", "#00af00", "#00c800", "#00e100"),
-	"yellow":new Array("#c3c300", "#7d7d00", "#969600", "#afaf00", "#c8c800", "#e1e100"),
-	"black":new Array("#c3c3c3", "#2a2a2a", "#646464", "#7d7d7d", "#969696", "#afafaf")
+	"red":   new Array("#ff9966", "#7d0000", "#960000", "#af0000", "#c80000", "#e10000"),
+	"blue":  new Array("#0099ff", "#0033cc","#0066ff",  "#0071ff","#008bff",  "#00adff"),
+	"green": new Array("#00ee5d", "#007d00", "#009600", "#00a216", "#02b400", "#00d03c"),
+	"yellow":new Array("#eddb54", "#7d7d00", "#969600", "#afaf00", "#c8c800", "#afaf00"),
+	"black": new Array("#c3c3c3", "#2a2a2a", "#646464", "#7d7d7d", "#969696", "#afafaf")
 	}
 
 function enableColorPicker() {
