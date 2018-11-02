@@ -44,6 +44,8 @@ body {
 }
 
 #logo_left {
+    cursor: pointer;
+
 	background-color: #A20000;
 	/*background-color: red;*/
 
@@ -51,30 +53,50 @@ body {
 	width:223px;
 
 	margin-top: 0px;
-	padding-top:100px;
+	padding-top:50px;
 	height:775px;
 	padding-bottom:200px;
 	margin-bottom: auto;
-
-
 }
 
+#logo_left h1 {
+	float:right;
+	padding-top:225px;
+
+	font-family: "Segoe UI",Arial,sans-serif;
+	color: #272727;
+}
+
+
+
+
 #logo_right {
+    cursor: pointer;
+
 	background-color: #272727;
 	/*background-color: blue;*/
 
 	float:right;
 	width:223px;
 
-	padding-top: 325px;
+	padding-top: 275px;
 	height:550px;
 	padding-bottom:200px;
 }
 
+#logo_right h2 {
+	float:left;
+	padding-top:7px;
+	
+	font-family: "Segoe UI",Arial,sans-serif;
+	color: #A20000;
+}
+
 
 #content {
-	opacity: 0;
-	height:110%;
+    cursor: pointer;
+
+	height:100%;
 	/*background-color:purple;*/
 	background-image: url('../resources/tilebackground.png');
 
