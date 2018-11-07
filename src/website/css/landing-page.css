@@ -43,6 +43,20 @@ body {
 	display: inline-block;
 }
 
+
+#content {
+    cursor: pointer;
+
+	height:100%;
+	/*background-color:purple;*/
+	background-image: url('../resources/images/tilebackground.png');
+
+	padding-top:250px;
+	padding-bottom: 250px;
+
+	text-align:center;
+}
+
 #logo_left {
     cursor: pointer;
 
@@ -67,9 +81,6 @@ body {
 	color: #272727;
 }
 
-
-
-
 #logo_right {
     cursor: pointer;
 
@@ -92,27 +103,11 @@ body {
 	color: #A20000;
 }
 
-
-#content {
-    cursor: pointer;
-
-	height:100%;
-	/*background-color:purple;*/
-	background-image: url('../resources/tilebackground.png');
-
-	padding-top:250px;
-	padding-bottom: 250px;
-
-	text-align:center;
-}
-
-
 #content h1 a, #content h2 a {
 	font-family: "Segoe UI",Arial,sans-serif;
 	color: #272727;
 	text-decoration:none;
 }
-
 
 #footer {
 	/*background-color:blue;*/
