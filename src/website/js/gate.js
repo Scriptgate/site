@@ -2,9 +2,11 @@
 var wall;
 
 function enableMasonry() {
+    console.log("Booting Masonry...")
 	var $container = $('#container');
 	var em = parseFloat( $container.css('font-size') );
 	wall = new Masonry(document.getElementById("container"), {columnWidth: 20*em});
+	console.log("... Masonry booted.")
 };
 
 
