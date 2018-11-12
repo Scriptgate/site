@@ -10,41 +10,35 @@
 		    body {
 		        margin:0px;
 		        padding:0px;
-		        background-color:#7d7d7d;
-		    }
+                background: #7d7d7d url('resources/hexagona_bgl.svg');
+            }
+
+            #content {
+                background-image: url('resources/hexagona_bg.svg');
+            }
+
 		    body {
-		    	background-image:url('resources/hexagonal.svg');
-		    	background-size:20em 10em;
+
 		    }
+
 		    #content {
-		        max-width: 80em;
+                text-align:center;
 		    }
 			.hex {
 			    text-align:center;
 				display:inline-block;
 				background-size:100%;
-				width:	20em;
-				height: 10em;
-				background-color:#7d7d7d;
+				width:	300px;
+				height: 300px;
+
 				font-family: "Segoe UI",Arial,sans-serif;
 			}
 			.hex h1 {
-				line-height:3.5em;
+				line-height:250px;
 			}
 			.hex h1 a {
 				text-decoration:none;
 				color:white;
-			}
-			.hex h2 {
-				line-height:5em;
-			}
-			.hex h2 a {
-			    text-decoration:none;
-			    color:white;
-			}
-
-			.hex span {
-			    display:inline-block;
 			}
 
 			.hex_white       { background-image:url('resources/hexagonal_white.svg');}
@@ -60,36 +54,85 @@
 			.hex_blue        { background-image:url('resources/hexagonal_blue.svg');}
 			.hex_blue:hover  { background-image:url('resources/hexagonal_blue_hover.svg');}
 
-			.hex_filler     { background-image:url('resources/hexagonal.svg');}
+            #profile {
+
+            }
+
+            @media (min-width:900px) {
+
+                #about {
+                    position: relative;
+                    left: -80px;
+                    top: -160px;
+                }
+                #games {
+                    position:relative;
+                    left: 80px;
+                    top: -160px;
+                }
+
+                #applications {
+                    position:relative;
+                    left: 0;
+                    top: -320px;
+                }
+
+                #tutorials {
+                    position:relative;
+                    left: -80px;
+                    top: -480px;
+                }
+
+                #examples {
+                    position:relative;
+                    left: 80px;
+                    top: -480px;
+                }
+
+                #github {
+                    position: relative;
+                    top: -640px;
+                }
+            }
+
     </style>
-    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-    <script type="text/javascript" src="js/masonry.min.js"></script>
-    <script type="text/javascript" src="js/gate.js"></script>
+
+    <script type="text/javascript">
+
+
+        window.onload  = initializeBackground;
+        window.onmousemove = updateBackground;
+
+        function initializeBackground() {
+
+        }
+
+        function loopBackground() {
+            console.log('');
+            setInterval('loopBackground();', 10);
+        }
+
+        function updateBackground(event) {
+            document.body.style.backgroundPositionX = Math.cos(event.clientX/1000)*100+'px';
+            document.body.style.backgroundPositionY = Math.sin(event.clientY/1000)*100+'px';
+
+            document.getElementById('content').style.backgroundPositionX = -Math.cos(event.clientX/2000)*100+'px';
+            document.getElementById('content').style.backgroundPositionY = -Math.sin(event.clientY/2000)*100+'px';
+        }
+    </script>
+
 </head>
 <body>
-<div id="header">
-    <a href="" class="colorpicker" id="red"></a>
-    <a href="" class="colorpicker" id="green"></a>
-    <a href="" class="colorpicker" id="blue"></a>
-    <a href="" class="colorpicker" id="yellow"></a>
-    <a href="" class="colorpicker" id="black"></a>
-</div>
 <div id="container">
     <div id="content">
-        <div class="hex hex_filler"><h1>&nbsp;</h1></div><!--
-        --><div class="hex hex_black"><h1><a href="html/site.html">Profile</a></h1></div><!--
-        --><div class="hex hex_filler"><h1>&nbsp;</h1></div><!--
-        --><div class="hex hex_white"><h1><a href="html/site.html">About</a></h1></div><!--
-        --><div class="hex hex_filler"><h1>&nbsp;</h1></div><!--
-        --><div class="hex hex_red"><h1><a href="html/games/">Games</a></h1></div><!--
-        --><div class="hex hex_filler"><h1>&nbsp;</h1></div><!--
-        --><div class="hex hex_yellow"><h2><a href="html/applications/">Applications</a></h2></div><!--
-        --><div class="hex hex_filler"><h1>&nbsp;</h1></div><!--
-        --><div class="hex hex_green"><h1><a href="html/tutorials/">Tutorials</a></h1></div><!--
-        --><div class="hex hex_filler"><h1>&nbsp;</h1></div><!--
-        --><div class="hex hex_blue"><h1><a href="html/examples/">Examples</a></h1></div><!--
-        --><div class="hex hex_filler"><h1>&nbsp;</h1></div><!--
-        --><div class="hex hex_white"><h1><a href="https://github.com/scriptgate">Github</a></h1></div>
+        <!--
+        --><div class="hex hex_black" id="profile"><h1><a href="html/site.html">Profile</a></h1></div><br/><!--
+        --><div class="hex hex_white" id="about"><h1><a href="html/site.html">About</a></h1></div><!--
+        --><div class="hex hex_red" id="games"><h1><a href="html/games/">Games</a></h1></div><br/><!--
+        --><div class="hex hex_yellow" id="applications"><h1><a href="html/applications/">Applications</a></h1></div><br/><!--
+        --><div class="hex hex_green" id="tutorials"><h1><a href="html/tutorials/">Tutorials</a></h1></div><!--
+        --><div class="hex hex_blue" id="examples"><h1><a href="html/examples/">Examples</a></h1></div><br/><!--
+        --><div class="hex hex_white" id="github"><h1><a href="https://github.com/scriptgate">Github</a></h1></div>
     </div>
 </div>
 </body>
