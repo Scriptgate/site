@@ -11,40 +11,53 @@ html {
 body {
 	height: 100%;
 	overflow-x:hidden;
+
+	background: #272727 url('../resources/background_red.png') repeat-y;
+	background-size: auto 50%;
+
 }
+
+#logo_background {
+	background: #272727 url('../resources/background_red.png') repeat-y;
+	background-size: 50% auto;
+}
+
 
 #container {
 	/*background-color:green;*/
 
-	background-image: url('../resources/logo_background.png');
-	background-color: #272727;
-	background-repeat: repeat-y;
-	background-size: 50% auto;
 
 	text-align: center;
 	overflow-x:hidden;
 	height: 110%;
 }
 
-#logo_container {
-	background-image: url('../resources/hex_color_50_opacity.svg');
-	background-color: #F0F0F0;
+#logo_background {
 
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: 50%;
+	height:100%;
+
+
+}
+
+#logo_container {
+
+	background: #A20000 url('../resources/background_grey.png') repeat-y;
+	background-size: 50% auto;
+
 
 	height:100%;
 
 	margin-left: auto;
 	width: 446px;
 	margin-right: auto;
+	margin-bottom: -5px;
+
 
 	display: inline-block;
 }
 
 
-#content {
+#hex {
     cursor: pointer;
 
 	height:100%;
@@ -95,50 +108,17 @@ body {
 	padding-bottom:200px;
 }
 
-#logo_right h2 {
+#logo_right h1 {
 	float:left;
-	padding-top:7px;
+
 	
 	font-family: "Segoe UI",Arial,sans-serif;
 	color: #A20000;
 }
 
-#content h1 a, #content h2 a {
+#hex h1 a {
 	font-family: "Segoe UI",Arial,sans-serif;
 	color: #272727;
-	text-decoration:none;
-}
-
-#footer {
-	/*background-color:blue;*/
-	padding-top: 300px;
-	height: 100px;
-	width:100%;
-}
-
-#footer h1 {
-	float:right;
-	margin-right:50%;
-	padding: 5px;
-	font-family: 'Arial Black';
-	display:inline-block;
-	line-height:0em;
-}
-#footer h1 a {
-	color: #272727;
-	text-decoration:none;
-}
-
-#footer h2 {
-	float:left;
-	margin-left:50%;
-	padding: 5px;
-	font-family: 'Arial Black';
-	display:inline-block;
-}
-
-#footer h2 a {
-	color: #A20000;
 	text-decoration:none;
 }
 

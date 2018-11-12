@@ -1,31 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl">
-<head>
-    <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
 
-    <title>ScriptGATE</title>
+		<title>ScriptGATE</title>
 
-    <style type="text/css">
-		    body {
-		        margin:0px;
-		        padding:0px;
-                background: #7d7d7d url('resources/hexagona_bgl.svg');
-            }
+		<link rel="stylesheet" href="css/landing-page.css">
+		<script type="text/javascript" src="js/script.js"></script>
 
-            #content {
-                background-image: url('resources/hexagona_bg.svg');
-            }
+		<style type="text/css">
+			body {
+				margin:0px;
+				padding:0px;
+				background: #7d7d7d url('resources/hexagona_bgl.svg');
+			}
 
-		    body {
+			#hexagonal {
+				background-image: url('resources/hexagona_bg.svg');
+			}
 
-		    }
+			body {
 
-		    #content {
-                text-align:center;
-		    }
+			}
+
+			#hexagonal {
+				text-align:center;
+			}
 			.hex {
-			    text-align:center;
+				text-align:center;
 				display:inline-block;
 				background-size:100%;
 				width:	300px;
@@ -34,7 +37,7 @@
 				font-family: "Segoe UI",Arial,sans-serif;
 			}
 			.hex h1 {
-				line-height:250px;
+				line-height:300px;
 			}
 			.hex h1 a {
 				text-decoration:none;
@@ -54,86 +57,97 @@
 			.hex_blue        { background-image:url('resources/hexagonal_blue.svg');}
 			.hex_blue:hover  { background-image:url('resources/hexagonal_blue_hover.svg');}
 
-            #profile {
+			#profile {
 
+			}
+
+			@media (min-width:900px) {
+
+				#about {
+					position: relative;
+					left: -80px;
+					top: -160px;
+				}
+				#games {
+					position:relative;
+					left: 80px;
+					top: -160px;
+				}
+
+				#applications {
+					position:relative;
+					left: 0;
+					top: -320px;
+				}
+
+				#tutorials {
+					position:relative;
+					left: -80px;
+					top: -480px;
+				}
+
+				#examples {
+					position:relative;
+					left: 80px;
+					top: -480px;
+				}
+
+				#github {
+					position: relative;
+					top: -640px;
+				}
+			}
+
+		</style>
+
+		<script type="text/javascript">
+
+            window.addEventListener('load', initializeBackground);
+            window.addEventListener('mousemove', updateBackground);
+
+            function initializeBackground() {
+				loopBackground();
             }
 
-            @media (min-width:900px) {
+            var backgroundOffset = {x:0, y:0};
 
-                #about {
-                    position: relative;
-                    left: -80px;
-                    top: -160px;
-                }
-                #games {
-                    position:relative;
-                    left: 80px;
-                    top: -160px;
-                }
+            function loopBackground() {
+                backgroundOffset.x += (Math.random()/2000);
+                backgroundOffset.y += Math.random()/2000;
 
-                #applications {
-                    position:relative;
-                    left: 0;
-                    top: -320px;
-                }
+                document.getElementById('hexagonal').style.backgroundPositionX = -Math.cos(backgroundOffset.x)*100+'px';
+                document.getElementById('hexagonal').style.backgroundPositionY = -Math.sin(backgroundOffset.y)*100+'px';
 
-                #tutorials {
-                    position:relative;
-                    left: -80px;
-                    top: -480px;
-                }
 
-                #examples {
-                    position:relative;
-                    left: 80px;
-                    top: -480px;
-                }
-
-                #github {
-                    position: relative;
-                    top: -640px;
-                }
+                setInterval('loopBackground();', 10);
             }
 
-    </style>
+            function updateBackground(event) {
+                backgroundOffset.x += event.clientX/2000;
+                backgroundOffset.y += event.clientY/2000;
+            }
+		</script>
+	</head>
+	<body>
+		<div id="container">
 
-    <script type="text/javascript">
-
-
-        window.onload  = initializeBackground;
-        window.onmousemove = updateBackground;
-
-        function initializeBackground() {
-
-        }
-
-        function loopBackground() {
-            console.log('');
-            setInterval('loopBackground();', 10);
-        }
-
-        function updateBackground(event) {
-            document.body.style.backgroundPositionX = Math.cos(event.clientX/1000)*100+'px';
-            document.body.style.backgroundPositionY = Math.sin(event.clientY/1000)*100+'px';
-
-            document.getElementById('content').style.backgroundPositionX = -Math.cos(event.clientX/2000)*100+'px';
-            document.getElementById('content').style.backgroundPositionY = -Math.sin(event.clientY/2000)*100+'px';
-        }
-    </script>
-
-</head>
-<body>
-<div id="container">
-    <div id="content">
-        <!--
-        --><div class="hex hex_black" id="profile"><h1><a href="html/site.html">Profile</a></h1></div><br/><!--
+			<div id="logo_background">
+				<div id="logo_container">
+					<div id="logo_left" onclick="javascript:openTheGates();"><img src="resources/logo_left.svg"/><h1>What is Script&nbsp;<h1></div>
+					<div id="logo_right" onclick="javascript:openTheGates();"><img src="resources/logo_right.svg"/><h1>&nbsp;GATE?</h1></div></div></div>
+			<div id="hex">
+				<h1><a href="html/site.html"><img src="resources/hex_color.svg"/><br/>Welcome to Scriptgate.</a></h1>
+			</div>
+			<div id="hexagonal">
+				<!--
+                --><div class="hex hex_black" id="profile"><h1><a href="html/site.html">Profile</a></h1></div><br/><!--
         --><div class="hex hex_white" id="about"><h1><a href="html/site.html">About</a></h1></div><!--
         --><div class="hex hex_red" id="games"><h1><a href="html/games/">Games</a></h1></div><br/><!--
         --><div class="hex hex_yellow" id="applications"><h1><a href="html/applications/">Applications</a></h1></div><br/><!--
         --><div class="hex hex_green" id="tutorials"><h1><a href="html/tutorials/">Tutorials</a></h1></div><!--
         --><div class="hex hex_blue" id="examples"><h1><a href="html/examples/">Examples</a></h1></div><br/><!--
         --><div class="hex hex_white" id="github"><h1><a href="https://github.com/scriptgate">Github</a></h1></div>
-    </div>
-</div>
-</body>
+			</div>
+		</div>
+	</body>
 </html>
